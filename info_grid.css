@@ -1,0 +1,74 @@
+
+body {
+    background: rgb(240, 240, 240);
+    margin: 0;
+}
+#main {
+    width: 910px;
+    margin: 0 auto;
+    border: 1px solid rgb(230, 230, 230);
+}
+.col {
+    display: inline-block;
+    /*因为三列是inline-block才并列在了一起，当某列中的box展开后，高度会不一致，
+    可以把此注释掉以看到效果*/
+    vertical-align: top;
+}
+.box,.box *{
+    transition: 0.3s ease;
+}
+.box {
+    width: 300px;
+    height: 250px;
+    background: rgb(240, 240, 240);
+}
+#main .col:nth-child(2n+1) .box:nth-child(2n+1){
+    background: rgb(130, 130, 130);
+}
+#main .col:nth-child(2n+2) .box:nth-child(2n+2) {
+    background: rgb(130, 130, 130);
+}
+.box-content {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    margin: 40px 0 0 100px;
+    border-radius: 100px;
+    background: rgb(60, 253, 146);
+    overflow: hidden;
+}
+.box-text {
+    position: absolute;
+    width: 230px;
+    margin: 170px 0 0 -65px;
+    opacity: 0;
+    font-size: 13px;
+    color: rgb(30, 30, 30);
+    text-align: center;
+    line-height: 20px;
+    transition: margin 0.3s linear, opacity 0.1s linear;
+}
+.box-title {
+    width: 300px;
+    margin: 170px 0 0 0;
+    position: absolute;
+    font-size: 18px;
+    color: rgb(30, 30, 30);
+    text-align: center;
+    letter-spacing: 2px;
+}
+.box.target {
+    height: 500px;
+}
+.box.target .box-content {
+    width: 300px;
+    height: 500px;
+    border-radius: 0;
+    margin: 0;
+}
+.box.target .box-text {
+    margin: 210px 0 0 35px;
+    opacity: 1;
+    transition: opacity 0.2s 0.4s linear;
+    font-size: 1em;
+}
